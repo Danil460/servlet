@@ -23,7 +23,7 @@ public class MyServlet extends HttpServlet {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test");
             //получаем данные из БД
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT id, number, square FROM APARTMENTS WHERE SQUARE=squares");
+            ResultSet rs = statement.executeQuery("SELECT id, number, square FROM APARTMENTS WHERE SQUARE="+squares);
             //записываем данные на страницу
             while (rs.next()) {
                 out.println(rs.getString("id") + " " + rs.getString("number")+ " " +rs.getString("square") );
